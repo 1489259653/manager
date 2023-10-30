@@ -1,5 +1,6 @@
 <template>
   <div class="login-container">
+
     <el-form
       ref="formRef"
       :model="loginForm"
@@ -8,57 +9,47 @@
       :rules="rules"
     >
       <div class="title-container">
-        <h3 class="title">{{ $t('login.title') }}</h3>
+        <h3 class="title">用户登录</h3>
       </div>
       <el-form-item prop="username">
-        <svg-icon class="svg-container" icon="user"></svg-icon>
+        <el-icon><User /></el-icon>
         <el-input v-model="loginForm.username"></el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <svg-icon class="svg-container" icon="password"></svg-icon>
+        <el-icon><Lock /></el-icon>
         <el-input v-model="loginForm.password" :type="passwordType"></el-input>
-        <span class="show-pwd" @click="onChangePwdType">
-          <span class="svg-container">
-            <svg-icon
-              :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
-            />
-          </span>
-        </span>
       </el-form-item>
-      <el-button type="primary" class="login-button" @click="handleLogin">{{
-        $t('login.btnTitle')
-      }}</el-button>
     </el-form>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { useStore } from 'vuex'
-import { loginRules } from './loginRule'
-const store = useStore()
+// // import { useStore } from 'vuex'
+// import { loginRules } from './loginRule'
+// // const store = useStore()
 
 const loginForm = ref({
   username: 'admin',
   password: '123456'
 })
-const rules = ref(loginRules)
-const passwordType = ref('password')
-const formRef = ref(null)
-const onChangePwdType = () => {
-  passwordType.value === 'password'
-    ? (passwordType.value = 'text')
-    : (passwordType.value = 'password')
-}
-const handleLogin = async () => {
-  formRef.value.validate((valid) => {
-    if (valid) {
-      store.dispatch('user/login', loginForm.value)
-    } else {
-      return false
-    }
-  })
-}
+// const rules = ref(loginRules)
+// const passwordType = ref('password')
+// // const formRef = ref(null)
+// const onChangePwdType = () => {
+//   passwordType.value === 'password'
+//     ? (passwordType.value = 'text')
+//     : (passwordType.value = 'password')
+// }
+// const handleLogin = async () => {
+//   formRef.value.validate((valid) => {
+//     if (valid) {
+//       store.dispatch('user/login', loginForm.value)
+//     } else {
+//       return false
+//     }
+//   })
+// }
 </script>
 
 <style lang="scss" scoped>
