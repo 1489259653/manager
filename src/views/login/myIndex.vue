@@ -1,6 +1,5 @@
 <template>
   <div class="login-container">
-
     <el-form
       ref="formRef"
       :model="loginForm"
@@ -11,6 +10,14 @@
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
+      <el-form-item>
+        <el-icon><User /></el-icon>
+        <el-input v-model="loginForm.username"></el-input>
+      </el-form-item>
+      <el-form-item >
+        <el-icon><Lock /></el-icon>
+        <el-input v-model="loginForm.password" :type="passwordType"></el-input>
+      </el-form-item>
       <el-form-item prop="username">
         <el-icon><User /></el-icon>
         <el-input v-model="loginForm.username"></el-input>
@@ -25,6 +32,7 @@
 
 <script setup>
 import { ref } from 'vue'
+// import { User, Lock } from '@element-plus/icons-vue'
 // // import { useStore } from 'vuex'
 // import { loginRules } from './loginRule'
 // // const store = useStore()
