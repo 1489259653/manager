@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-// import { User, Lock } from ' @element-plus/icons-vue'
+import { User, Lock } from '@element-plus/icons-vue'
 const loginForm = ref({
   username: 'admin',
   password: '123456'
