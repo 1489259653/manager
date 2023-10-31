@@ -94,10 +94,20 @@ $cursor: #fff;
     vertical-align: middle;
     display: inline-block;
   }
+  // * {
+  //       margin:0;
+  //       padding:0;
+  //   }
+  //   html,body{
+  //   height:100%;
+  //   }
+  //   .box{
+  //   height:100%;
+  //   background-color:blue;
+  //   }
 
   .title-container {
     position: relative;
-
     .title {
       font-size: 26px;
       color: $light_gray;
