@@ -1,9 +1,9 @@
 <template>
   <div class="login-container">
-      <div class="title-container">
+      <el-form ref="formRef" :model="loginForm" class="login-form">
+        <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
-      <el-form ref="formRef" :model="loginForm" class="login-form">
       <el-form-item>
         <el-icon class="svg-container"><User /></el-icon>
         <el-input v-model="loginForm.username" ></el-input>
@@ -12,8 +12,11 @@
         <el-icon class="svg-container"><Lock /></el-icon>
         <el-input v-model="loginForm.password" :type="passwordType"></el-input>
       </el-form-item>
+      <el-button class="login-button" type="primary">登录</el-button>
     </el-form>
+
   </div>
+
 </template>
 
 <script setup>
@@ -33,8 +36,10 @@ $light_gray: #eee;
 $cursor: #fff;
 
 .login-container {
-  min-height: 100%;
+  height: 100%;
   width: 100%;
+  position: fixed;
+  background-size: cover;
   background-color: $bg;
   overflow: hidden;
 
@@ -94,17 +99,6 @@ $cursor: #fff;
     vertical-align: middle;
     display: inline-block;
   }
-  // * {
-  //       margin:0;
-  //       padding:0;
-  //   }
-  //   html,body{
-  //   height:100%;
-  //   }
-  //   .box{
-  //   height:100%;
-  //   background-color:blue;
-  //   }
 
   .title-container {
     position: relative;
